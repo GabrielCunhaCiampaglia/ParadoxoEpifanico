@@ -1,0 +1,133 @@
+/* ========== ABOUT PAGE ========== */
+.about-page {
+    max-width: 700px;
+    margin: 0 auto;
+    animation: aboutFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+}
+
+@keyframes aboutFadeUp {
+    from {
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========== HEADER ========== */
+.about-header {
+    margin-bottom: 40px;
+}
+
+.about-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #60a5fa;
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.about-title {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+}
+
+.about-subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* ========== CONTENT ========== */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.about-section {
+    background: rgba(15, 15, 35, 0.6);
+    border: 1px solid rgba(99, 102, 241, 0.1);
+    border-radius: 18px;
+    padding: 28px;
+}
+
+.about-section-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: var(--text-primary);
+}
+
+.about-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.about-text:last-child {
+    margin-bottom: 0;
+}
+
+.about-text code {
+    background: rgba(99, 102, 241, 0.15);
+    color: var(--accent);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.85em;
+}
+
+.about-text strong {
+    color: var(--text-primary);
+}
+
+/* ========== TECH GRID ========== */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.tech-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    background: rgba(99, 102, 241, 0.05);
+    border: 1px solid rgba(99, 102, 241, 0.08);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.tech-item:hover {
+    border-color: rgba(99, 102, 241, 0.2);
+    background: rgba(99, 102, 241, 0.08);
+}
+
+.tech-emoji {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.tech-item strong {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    display: block;
+}
+
+.tech-item p {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    margin: 0;
+}

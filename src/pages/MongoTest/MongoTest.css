@@ -1,0 +1,229 @@
+/* ========== MONGO TEST PAGE ========== */
+.mongo-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 80px);
+}
+
+.mongo-card {
+    position: relative;
+    max-width: 440px;
+    width: 100%;
+    background: rgba(15, 15, 35, 0.85);
+    border: 1px solid rgba(99, 102, 241, 0.15);
+    border-radius: 24px;
+    padding: 48px 40px;
+    backdrop-filter: blur(20px);
+    text-align: center;
+    overflow: hidden;
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.03),
+        0 8px 40px rgba(0, 0, 0, 0.4),
+        0 0 80px rgba(99, 102, 241, 0.05);
+    animation: mongoCardIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes mongoCardIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mongo-card-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(99, 102, 241, 0.06) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+/* ========== ICON ========== */
+.mongo-icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(167, 139, 250, 0.1));
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    margin-bottom: 28px;
+    animation: mongoFloat 3s ease-in-out infinite;
+}
+
+.mongo-db-icon {
+    width: 36px;
+    height: 36px;
+    color: var(--accent);
+}
+
+@keyframes mongoFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+/* ========== TYPOGRAPHY ========== */
+.mongo-title {
+    font-size: 1.65rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-bottom: 8px;
+}
+
+.mongo-highlight {
+    background: linear-gradient(135deg, var(--accent), var(--accent-bright));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.mongo-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 36px;
+}
+
+/* ========== BUTTON ========== */
+.mongo-test-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: #fff;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.mongo-test-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.mongo-test-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4), 0 0 60px rgba(99, 102, 241, 0.15);
+}
+
+.mongo-test-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.mongo-test-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.mongo-test-btn.loading {
+    padding: 16px;
+}
+
+.mongo-btn-icon {
+    width: 18px;
+    height: 18px;
+}
+
+/* ========== SPINNER ========== */
+.mongo-spinner {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    border: 2.5px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: mongoSpin 0.7s linear infinite;
+}
+
+@keyframes mongoSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ========== RESULT ========== */
+.mongo-result {
+    margin-top: 28px;
+    padding: 20px;
+    border-radius: 14px;
+    animation: mongoResultIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    transform: translateY(8px);
+}
+
+@keyframes mongoResultIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mongo-result.success {
+    background: var(--success-bg);
+    border: 1px solid var(--success-border);
+}
+
+.mongo-result.error {
+    background: var(--error-bg);
+    border: 1px solid var(--error-border);
+}
+
+.mongo-result-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.mongo-result.success .mongo-result-icon {
+    color: var(--success-text);
+}
+
+.mongo-result.error .mongo-result-icon {
+    color: var(--error-text);
+}
+
+.mongo-result-message {
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--text-primary);
+}
+
+.mongo-result-error {
+    margin-top: 8px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-family: 'Courier New', monospace;
+    word-break: break-all;
+}
